@@ -17,7 +17,7 @@ namespace ORM_Dapper
 
             IDbConnection conn = new MySqlConnection(connString);
             
-            var departmentRepo = new DapperDepartmentRepository(conn);
+            /*var departmentRepo = new DapperDepartmentRepository(conn);
             
             departmentRepo.InsertDepartment("Tyler's New Department");
             
@@ -27,6 +27,21 @@ namespace ORM_Dapper
             {
                 Console.WriteLine(department.DepartmentID);
                 Console.WriteLine(department.Name);
+                Console.WriteLine();
+                Console.WriteLine();
+            }*/
+            
+            var productRepository = new DapperProductRepository(conn);
+            var products = productRepository.GetAllProducts();
+
+            foreach (var product in products)
+            {
+                Console.WriteLine(product.ProductID);
+                Console.WriteLine(product.Name);
+                Console.WriteLine(product.Price);
+                Console.WriteLine(product.CategoryId);
+                Console.WriteLine(product.OnSale);
+                Console.WriteLine(product.StockLevel);
                 Console.WriteLine();
                 Console.WriteLine();
             }
